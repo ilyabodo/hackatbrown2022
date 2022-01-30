@@ -182,7 +182,10 @@ void update_fsm() {
 
 
       Oled.setFont(u8x8_font_chroma48medium8_r); 
-      Oled.setCursor(0, 3);
+      Oled.setCursor(0, 1);
+      Oled.println("Hack @ Brown");
+      Oled.println("2022");
+      Oled.println("");
       Oled.print("Temp: ");
       Oled.println(curr_temp);
       Oled.print("Humidity: ");
