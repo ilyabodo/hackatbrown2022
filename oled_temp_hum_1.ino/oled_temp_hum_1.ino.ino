@@ -52,17 +52,47 @@ void loop() {
 void update_fsm() {
   switch (curr_state) {
     case sProgram:
+      // Get max and min temperature
       Serial.println("Input maximum temperature (Celcius)");
       max_temp = Serial.parseInt();
   
       Serial.println("Input minimum temperature (Celcius)");
       min_temp = Serial.parseInt();
-  
+
+      // Error if min_temp >= max_temp, reprompt user
+      while(min_temp >= max_temp) {
+        Serial.print("Error: Min temp:");
+        Serial.print(min_temp);
+        Serial.print(" >= Max temp: ");
+        Serial.println(max_temp);
+        
+        Serial.println("Input maximum temperature (Celcius)");
+        max_temp = Serial.parseInt();
+    
+        Serial.println("Input minimum temperature (Celcius)");
+        min_temp = Serial.parseInt();
+      }
+
+      // Get max and min humidity
       Serial.println("Input maximum humidity (%)");
       max_humid = Serial.parseInt();
   
       Serial.println("Input minimum humidity (%)");
       min_humid = Serial.parseInt();
+
+      // Error if min_humid >= max_humid, reprompt user
+      while(min_humid >= max_humid) {
+        Serial.print("Error: Min humidity:");
+        Serial.print(min_humid);
+        Serial.print(" >= Max humidity: ");
+        Serial.println(max_humid);
+        
+        Serial.println("Input maximum humidity (%)");
+        max_humid = Serial.parseInt();
+    
+        Serial.println("Input minimum humidity (%)");
+        min_humid = Serial.parseInt();
+      }
   
       curr_state = sGetData;
       break;
