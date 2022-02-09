@@ -1,4 +1,4 @@
-# Hack @ Brown 2022
+# Greenhouse Monitor - Hack @ Brown 2022
 
 ## Inspiration
 We wanted to create a hardware hack, because we both enjoy working with embedded systems and interacting at a low level with hardware.
